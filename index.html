@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - OnestopNDT</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="ndtfavicon.webp" type="image/x-icon" />
+    <style>
+      .success-message,
+      .error-message {
+        display: none;
+        margin-top: 20px;
+      }
+      .success-message {
+        color: green;
+      }
+      .error-message {
+        color: red;
+      }
+
+      .form-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .map iframe {
+        width: 100%;
+        height: 450px;
+        border: 0;
+      }
+
+      .contact-text {
+        text-align: left;
+      }
+
+      .contact-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .onestop-logo img {
+        height: 70px;
+        margin-bottom: 50px;
+        margin-right: 1000px;
+      }
+
+      section.bg-light {
+        background-color: #fff !important;
+      }
+
+      footer {
+        padding: 20px;
+        background-color: #09095cec;
+        color: #fff;
+        position: relative;
+      }
+
+      .image3 {
+        text-align: right;
+      }
+      .image3 img {
+        height: 50px;
+        background-color: #03034d;
+      }
+
+      .conceptscontainer {
+        display: flex;
+
+        justify-content: center;
+        margin-top: 50px;
+      }
+
+      .concepts {
+        flex: 1 1 100px;
+        height: 100px;
+        width: 100px;
+      }
+      a.info p {
+        color: white;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      @media (max-width: 360px) {
+        .contact-section {
+          flex-direction: column;
+        }
+
+        .contact-text {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .onestop-logo {
+          text-align: center;
+        }
+        .image3 {
+          text-align: center;
+        }
+
+        .conceptscontainer {
+          flex-direction: column;
+        }
+        .map {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="py-5 text-center bg-light">
+        <div class="container">
+          <div class="onestop-logo">
+            <img src="images.png" alt="OnestopNDT logo" />
+          </div>
+          <div class="form-container">
+            <div class="row contact-section">
+              <div class="col-md-5 contact-text">
+                <h2 class="mb-4">Got any questions?</h2>
+                <p class="mb-4">Let's discuss it over a cup of coffee.</p>
+              </div>
+
+              <div class="col-md-7">
+                <div id="successMessage" class="success-message">
+                  Form submitted successfully!
+                </div>
+                <div id="errorMessage" class="error-message">
+                  There was an error submitting the form. Please check your
+                  inputs.
+                </div>
+
+                <form
+                  class="row g-3"
+                  action="contact_process.php"
+                  method="POST"
+                  id="contactForm"
+                >
+                  <div class="col-md-12">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="name"
+                      id="name"
+                      placeholder="Name"
+                      required
+                    />
+                    <small class="text-danger" id="nameError"></small>
+                  </div>
+                  <div class="col-md-12">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="organization"
+                      id="organization"
+                      placeholder="Organization Name"
+                      required
+                    />
+                    <small class="text-danger" id="organizationError"></small>
+                  </div>
+                  <div class="col-md-12">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      placeholder="Email"
+                    />
+                    <small class="text-danger" id="emailError"></small>
+                  </div>
+                  <div class="col-md-12">
+                    <input
+                      type="tel"
+                      class="form-control"
+                      name="contact"
+                      id="contact"
+                      placeholder="Contact Number"
+                      maxlength="10"
+                      minlength="10"
+                      pattern="[7-9]{1}[0-9]{9}"
+                      required
+                    />
+                    <small class="text-danger" id="contactError"></small>
+                  </div>
+                  <div class="col-md-12">
+                    <textarea
+                      class="form-control"
+                      name="message"
+                      id="message"
+                      placeholder="Message"
+                      rows="4"
+                      required
+                    ></textarea>
+                    <small class="text-danger" id="messageError"></small>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.184444345446!2d73.00443887371814!3d19.143401949856035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bfeb4288ae8d%3A0x8b330290504e58fa!2sLaser%20Technologies%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1729490308939!5m2!1sen!2sin"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <div class="conceptscontainer">
+            <div class="concepts">
+              <a href=""><img src="companies.png" alt="" /></a>
+            </div>
+            <div class="concepts">
+              <a href=""><img src="jobs.png" alt="" /></a>
+            </div>
+            <div class="concepts">
+              <a href=""><img src="articles.png" alt="" /></a>
+            </div>
+            <div class="concepts">
+              <a href=""><img src="webinars.png" alt="" /></a>
+            </div>
+            <div class="concepts">
+              <a href=""><img src="forums.png" alt="" /></a>
+            </div>
+            <div class="concepts">
+              <a href=""><img src="applicationnotes.png" alt="" /></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="image3">
+        <img src="image3.png" alt="onestop2nd" />
+      </div>
+      <hr />
+      <a href="https://www.onestopndt.com/" class="info"
+        ><p>What is One Stop NDT?</p></a
+      >
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function hideMessage() {
+        setTimeout(function () {
+          document.getElementById("successMessage").style.display = "none";
+        }, 5000);
+      }
+
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          let valid = true;
+
+          if (document.getElementById("name").value === "") {
+            valid = false;
+            document.getElementById("nameError").textContent =
+              "Name is required.";
+          }
+          if (document.getElementById("email").value === "") {
+            valid = false;
+            document.getElementById("emailError").textContent =
+              "Email is required.";
+          }
+          if (document.getElementById("message").value === "") {
+            valid = false;
+            document.getElementById("messageError").textContent =
+              "Message is required.";
+          }
+
+          if (!valid) {
+            e.preventDefault();
+            document.getElementById("errorMessage").style.display = "block";
+            setTimeout(function () {
+              document.getElementById("errorMessage").style.display = "none";
+            }, 5000);
+          }
+        });
+
+      if (document.getElementById("successMessage").textContent) {
+        hideMessage();
+      }
+    </script>
+  </body>
+</html>
